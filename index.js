@@ -107,7 +107,6 @@ $(function () {
 });
 $(".taskLeft").html(lenghtOfUnchecked+' tasks left');
 // $(".taskDone").html(lenghtOfChecked+' tasks completed');
-//1.完成清單的計算 2.my-task以外的task left不會動
     
 //Update status
 function updateStatus(selectedTask) {

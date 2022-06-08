@@ -19,6 +19,7 @@ body{
 .controls{
     display: flex;
     justify-content: space-between;
+    background-color: #4a90e2;
 }
 
 .filters{
