@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+<link rel="stylesheet" href="jquery-ui-1.13.1/jquery-ui.css">
+<body>
+    <div class="controls">
+        <div class="filters">
+            <div id="my-task" class="active">My tasks</div>
+            <div id="in-progress">In progress</div>
+            <div id="completed">Completed</div>
+        </div>
+    </div>
+    <div class="addButton">
+        <button class="btn" id="addbtn">
+            <i class="fa-solid fa-plus"></i> Add Task
+        </button>
+    </div>
+    <div class="todolist">
+        <div class="editList">
+            <input type="checkbox" name="" class="checkbox">
+            <input type="text" name="" class="text" placeholder="Type Something Here...">
+            <div class="icon">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-solid fa-pen active"></i>
+            </div>
+            <div class="line"></div>
+            <p><i class="fa-solid fa-calendar-days"></i> Deadline</p>
+            <div class="deadline"> 
+                <input type="date" id="date">
+                <input type="time" id="time">
+            </div>
+            <p><i class="fa-regular fa-file"></i> File</p>
+            <div class="file">
+                <span class="fileName">
+                    <p class="name"></p>
+                    <p class="upload-time"></p>
+                </span>
+                <label class="upload_cover" id="file">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <input type="file" id="input">
+                </label>
+            </div>
+            <p><i class="fa-regular fa-comment-dots"></i> Comment</p>
+            <div class="comment"> 
+                <input type="text" placeholder="Type your memo here..." id="memo">
+            </div>
+            <div class="saveButton">
+                <button class="cancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                <button class="save" id="savebtn"><i class="fa-solid fa-plus"></i> Add Task</button>
+                <button id="editbtn"><i class="fa-solid fa-plus"></i> Save</button>
+            </div>
+        </div>
+    </div>
+    <ul class="todos" id="sortable">
+        <li class="task">
+            <label for="1">
+                <input type="checkbox" name="" class="checkbox" id="1">
+                <input type="text" name="" class="text" placeholder="Type Something Here...">
+            </label>
+                <div class="icon">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-solid fa-pen"></i>
+                </div>
+                <div class="info">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="fa-regular fa-file"></i>
+                    <i class="fa-regular fa-comment-dots"></i>
+                </div>
+        </li>
+    </ul>
+    <div class="taskLeft"></div>
+    <div class="taskDone"></div>
+    
+    <script src="jquery-3.6.0.js"></script>
+    <script src="jquery-ui-1.13.1/jquery-ui.js"></script>
+    <script src="../index.js"></script>
+    
+</body>
+</html>
