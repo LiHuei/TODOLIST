@@ -298,6 +298,8 @@ p{
     justify-content: center;
     align-items: center;
     list-style-type: none;
+    width: 620px;
+    margin: auto;
 }
 
 .task{
