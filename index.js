@@ -64,8 +64,9 @@ function showTodo(filter) {
                         <input type="text" name="" class="text ${isCompleted}" placeholder="${todo.name}">
                     </label>
                         <div class="icon">
-                            <i class="fa-regular fa-star"></i>
-                            <i onclick="editTask(${id}, '${todo.name}', '${todo.date}', '${todo.time}', '${todo.memo}')" class="fa-solid fa-pen"></i>
+                            <i class="fa-regular fa-star star"></i>
+                            <i class="fa-solid fa-star activeStar"></i>
+                            <i onclick="editTask(${id}, '${todo.name}', '${todo.date}', '${todo.time}', '${todo.memo}')" class="fa-solid fa-pen pen"></i>
                         </div>
                         <div class="info" onclick="showActive(this)">
                             <i class="fa-solid fa-calendar-days"><span>${todo.date}</span></i>
