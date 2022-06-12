@@ -27,6 +27,21 @@ $(".todolist").on("change", '[id^=input]', function(e){
 
 // Star
 
+function changeStar(e){
+    const parent = document.querySelector(".icon");
+    const activeStar = parent.querySelector(".activeStar");
+    activeStar.style.display = "block";
+    document.querySelector(".star-status").style.background = "#fff2dc";
+};
+const parent = document.querySelector(".icon");
+const activeStar = parent.querySelector(".activeStar");
+activeStar.onclick = function(){
+    this.style.display = "none";
+    document.querySelector(".star-status").style.background = "none";
+}
+
+const stars = document.querySelectorAll(".star");
+stars.forEach(button => button.addEventListener("click", changeStar));
 
 //  Add task to list
 const taskInput = document.querySelector(".editList .text"),
