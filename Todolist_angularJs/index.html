@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoApp">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>TodoList with AngularJs</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 <link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="jquery-ui-1.13.1/jquery-ui.css">
-<body>
+
+<body ng-controller="todoController as todoList">
     <div class="controls">
         <div class="filters">
             <div id="my-task" class="active">My tasks</div>
@@ -17,25 +18,25 @@
             <div id="completed">Completed</div>
         </div>
     </div>
-    <div class="addButton">
+    <div class="addButton" ng-click="isShow = !isShow">
         <button class="btn" id="addbtn">
             <i class="fa-solid fa-plus"></i> Add Task
         </button>
     </div>
-    <div class="todolist">
+    <div class="todolist" ng-class="{'swichAddTask': isShow}">
         <div class="editList">
-            <div class="star-status">
+            <div class="star-status" ng-class="{'isImportant':isActive}">
                 <input type="checkbox" name="" class="checkbox">
                 <input type="text" name="" class="text" placeholder="Type Something Here...">
             </div>
             <div class="icon">
                 <i class="fa-regular fa-star star"></i>
-                <i class="fa-solid fa-star activeStar"></i>
+                <i class="fa-solid fa-star activeStar" ng-show=""></i>
                 <i class="fa-solid fa-pen active pen"></i>
             </div>
             <div class="line"></div>
             <p><i class="fa-solid fa-calendar-days"></i> Deadline</p>
-            <div class="deadline"> 
+            <div class="deadline">
                 <input type="date" id="date">
                 <input type="time" id="time">
             </div>
@@ -51,7 +52,7 @@
                 </label>
             </div>
             <p><i class="fa-regular fa-comment-dots"></i> Comment</p>
-            <div class="comment"> 
+            <div class="comment">
                 <input type="text" placeholder="Type your memo here..." id="memo">
             </div>
             <div class="saveButton">
@@ -63,29 +64,28 @@
     </div>
     <ul class="pinned"></ul>
     <ul class="todos" id="sortable">
-        <li class="task">
+        <li class="task" ng-repeat="todo in todoList.todos" ng-class="{'isImportant':isActive}">
             <label for="1">
-                <input type="checkbox" name="" class="checkbox" id="1">
-                <input type="text" name="" class="text" placeholder="Type Something Here...">
+                <input type="checkbox" name="" class="checkbox" id="1" ng-model="todo.done">
+                <span class="text" ng-class="{'isDone':todo.done}">{{todo.text}}</span>
             </label>
-                <div class="icon">
-                    <i class="fa-regular fa-star star"></i>
-                    <i class="fa-solid fa-star activeStar"></i>
-                    <i class="fa-solid fa-pen pen"></i>
-                </div>
-                <div class="info">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <i class="fa-regular fa-file"></i>
-                    <i class="fa-regular fa-comment-dots"></i>
-                </div>
+            <div class="icon">
+                <i class="fa-regular fa-star star" ng-click="isActive = !isActive"></i>
+                <i class="fa-solid fa-star activeStar" ng-show="isActive"></i>
+                <i class="fa-solid fa-pen pen"></i>
+            </div>
+            <div class="info">
+                <i class="fa-solid fa-calendar-days"></i>
+                <i class="fa-regular fa-file"></i>
+                <i class="fa-regular fa-comment-dots"></i>
+            </div>
         </li>
     </ul>
     <div class="taskLeft"></div>
     <div class="taskDone"></div>
 
-    <script src="jquery-3.6.0.js"></script>
-    <script src="jquery-ui-1.13.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="index.js"></script>
-    
 </body>
+
 </html>
