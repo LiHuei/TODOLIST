@@ -7,7 +7,14 @@ angular.module('todoApp', [])
             { text: 'TODO 3', done: false, clickStar: false, },
         ]
 
-        todoList.clickStar = function (todo) {
-            todo.clickStar = true;
+        todoList.addTodo = function () {
+            var newTodo = { text: todoList.newTodoText, done: false, clickStar: false};
+            todoList.todos.push(newTodo);
+            todoList.newTodoText = '';
+        }
+
+        todoList.totalTodo = function () {
+            var left = todoList.todos.filter(todo => todo.done == false);
+            return left.length;
         }
     })

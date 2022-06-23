@@ -25,10 +25,10 @@
     </div>
     <div class="todolist" ng-class="{'swichAddTask': isShow}">
         <div class="editList">
-            <div class="star-status" ng-class="{'isImportant':isActive}">
+            <form class="star-status" ng-class="{'isImportant':isActive}" ng-submit="todoList.addTodo()">
                 <input type="checkbox" name="" class="checkbox">
-                <input type="text" name="" class="text" placeholder="Type Something Here...">
-            </div>
+                <input type="text" name="" class="text" placeholder="Type Something Here..." ng-model="todoList.newTodoText">
+            </form>
             <div class="icon">
                 <i class="fa-regular fa-star star"></i>
                 <i class="fa-solid fa-star activeStar" ng-show=""></i>
@@ -65,7 +65,7 @@
     <ul class="pinned"></ul>
     <ul class="todos" id="sortable">
         <li class="task" ng-repeat="todo in todoList.todos" ng-class="{'isImportant':isActive}">
-            <label for="1">
+            <label for="">
                 <input type="checkbox" name="" class="checkbox" id="1" ng-model="todo.done">
                 <span class="text" ng-class="{'isDone':todo.done}">{{todo.text}}</span>
             </label>
@@ -81,8 +81,7 @@
             </div>
         </li>
     </ul>
-    <div class="taskLeft"></div>
-    <div class="taskDone"></div>
+    <div class="taskLeft">{{todoList.totalTodo()}} task left</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="index.js"></script>
