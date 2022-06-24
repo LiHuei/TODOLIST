@@ -14,7 +14,7 @@
     <div class="controls">
         <div class="filters">
             <div id="my-task" class="active">My tasks</div>
-            <div id="in-progress">In progress</div>
+            <div id="in-progress" ng-click="todoList.inProgress()">In progress</div>
             <div id="completed">Completed</div>
         </div>
     </div>
@@ -27,7 +27,8 @@
         <div class="editList">
             <form class="star-status" ng-class="{'isImportant':isActive}" ng-submit="todoList.addTodo()">
                 <input type="checkbox" name="" class="checkbox">
-                <input type="text" name="" class="text" placeholder="Type Something Here..." ng-model="todoList.newTodoText">
+                <input type="text" name="" class="text" placeholder="Type Something Here..."
+                    ng-model="todoList.newTodoText">
             </form>
             <div class="icon">
                 <i class="fa-regular fa-star star"></i>
@@ -37,8 +38,8 @@
             <div class="line"></div>
             <p><i class="fa-solid fa-calendar-days"></i> Deadline</p>
             <div class="deadline">
-                <input type="date" id="date">
-                <input type="time" id="time">
+                <input type="date" id="date" ng-model="todo.userDate">
+                <input type="time" id="time" ng-model="todo.userTime">
             </div>
             <p><i class="fa-regular fa-file"></i> File</p>
             <div class="file">
@@ -53,11 +54,12 @@
             </div>
             <p><i class="fa-regular fa-comment-dots"></i> Comment</p>
             <div class="comment">
-                <input type="text" placeholder="Type your memo here..." id="memo">
+                <input type="text" placeholder="Type your memo here..." id="memo" ng-model="todo.userMemo">
             </div>
             <div class="saveButton">
                 <button class="cancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
-                <button class="save" id="savebtn"><i class="fa-solid fa-plus"></i> Add Task</button>
+                <button class="save" id="savebtn" ng-click="todoList.addTodo()"><i class=" fa-solid fa-plus"></i> Add
+                    Task</button>
                 <button id="editbtn"><i class="fa-solid fa-plus"></i> Save</button>
             </div>
         </div>
@@ -72,7 +74,7 @@
             <div class="icon">
                 <i class="fa-regular fa-star star" ng-click="isActive = !isActive"></i>
                 <i class="fa-solid fa-star activeStar" ng-show="isActive"></i>
-                <i class="fa-solid fa-pen pen"></i>
+                <i class="fa-solid fa-pen pen" ng-click="todoList.isEdit()"></i>
             </div>
             <div class="info">
                 <i class="fa-solid fa-calendar-days"></i>
