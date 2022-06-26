@@ -2,15 +2,15 @@ angular.module('todoApp', [])
     .controller('todoController', function () {
         var todoList = this;
         this.todos = [
-            new todo('TODO 1'),
-            new todo('TODO 2'),
-            new todo('TODO 3'),
+            new Todo('TODO 1'),
+            new Todo('TODO 2'),
+            new Todo('TODO 3'),
         ]
 
         this.tabs = [
-            new Tab('myTask'),
-            new Tab('inProgress'),
-            new Tab('completed'),
+            new Tab('My task'),
+            new Tab('In progress'),
+            new Tab('Completed'),
         ]
 
 
@@ -49,7 +49,7 @@ angular.module('todoApp', [])
             if (tab.isInProgress) {
                 this.filterTodos = todoList.todos.filter(todo => todo.done == false);
             }
-            if (tab.text == 'completed') {
+            if (tab.isCompleted) {
                 this.filterTodos = todoList.todos.filter(todo => todo.done == true);
             }
 
@@ -58,16 +58,12 @@ angular.module('todoApp', [])
         this.selectTab(this.tabs[0])
     })
 
-class todo {
+class Todo {
     text;
     done = false;
     clickStar = false;
     constructor(text) {
         this.text = text;
-    }
-
-    isShow(value) {
-        this.done = value;
     }
 }
 
@@ -83,6 +79,10 @@ class Tab {
     }
 
     get isInProgress() {
-        return this.text == 'inProgress'
+        return this.text == 'In progress'
+    }
+
+    get isCompleted() {
+        return this.text == 'Completed'
     }
 }

@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <section ng-show="todoList.currentTab == 'myTask'">
+    <section ng-show="todoList.currentTab == 'My task'">
         <ul class="todos" id="sortable">
             <li class="task" ng-repeat="todo in todoList.todos" ng-class="{'isImportant':isActive}">
                 <label for="">
@@ -89,7 +89,7 @@
         <div class="taskLeft">{{todoList.totalTodo()}} task left</div>
     </section>
 
-    <section ng-show="todoList.currentTab !== 'myTask'">
+    <section ng-show="todoList.currentTab !== 'My task'">
         <ul class="todos" id="sortable">
             <li class="task" ng-repeat="todo in todoList.filterTodos" ng-class="{'isImportant':isActive}">
                 <label for="">
@@ -110,28 +110,6 @@
         </ul>
         <div class="taskLeft">{{todoList.totalTodo()}} task left</div>
     </section>
-
-    <!-- <section>
-    <ul class="todos" id="sortable">
-        <li class="task" ng-repeat="todo in todoList.todos" ng-class="{'isImportant':isActive}">
-            <label for="">
-                <input type="checkbox" name="" class="checkbox" id="1" ng-model="todo.done">
-                <span class="text" ng-class="{'isDone':todo.done}">{{todo.text}}</span>
-            </label>
-            <div class="icon">
-                <i class="fa-regular fa-star star" ng-click="isActive = !isActive"></i>
-                <i class="fa-solid fa-star activeStar" ng-show="isActive"></i>
-                <i class="fa-solid fa-pen pen" ng-click="todoList.isEdit()"></i>
-            </div>
-            <div class="info">
-                <i class="fa-solid fa-calendar-days"></i>
-                <i class="fa-regular fa-file"></i>
-                <i class="fa-regular fa-comment-dots"></i>
-            </div>
-        </li>
-    </ul>
-    <div class="taskLeft">{{todoList.totalTodo()}} task left</div>
-</section> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="index.js"></script>
